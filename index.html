@@ -1,75 +1,101 @@
 <!DOCTYPE html>
 <html lang="sv">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>S-värde</title>
-  <link rel="manifest" href="manifest.json" />
-  <link rel="icon" href="icon.png" />
-  <meta name="theme-color" content="#aaffaa" />
-  <style>
-    body {
-      font-family: sans-serif;
-      padding: 1em;
-      background-color: #f0fff0;
-    }
-    h1 {
-      color: #333;
-    }
-    select, button {
-      font-size: 1.2em;
-      margin: 1em 0;
-    }
-    .output {
-      font-size: 1.5em;
-      margin-top: 1em;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Display</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-  <h1>S-värde kalkylator</h1>
-  
-  <label for="kaliber">Välj kaliber:</label>
-  <select id="kaliberSelect">
-    <!-- Alternativ kommer att fyllas här med JavaScript -->
-  </select>
 
-  <p class="output"><strong>S-värde:</strong> <span id="sValue">--</span></p>
-  
-  <script>
-    const tabell2 = [
-      { "kaliber": "6.5x55", "s": "1.52" },
-      { "kaliber": "308 Win", "s": "1.55" },
-      { "kaliber": "30-06", "s": "1.58" },
-      { "kaliber": "8x57", "s": "1.60" },
-      { "kaliber": "9.3x62", "s": "1.65" },
-      { "kaliber": "375 H&H", "s": "1.75" }
-      // Lägg till fler värden här...
-    ];
+    <h1>Vapen och Skjutdata</h1>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Avstånd</th>
+                <th>Vapen</th>
+                <th>Ställning</th>
+                <th>Mål</th>
+                <th>S</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Data rader kommer här -->
+        </tbody>
+    </table>
 
-    const select = document.getElementById("kaliberSelect");
-    const sValue = document.getElementById("sValue");
+    <script>
+        const data = [
+            { Avst: 50, Vapen: 'AK5', Stallning: 'LigS', Mal: '1∕1', S: 1 },
+            { Avst: 100, Vapen: 'AK5', Stallning: 'LigS', Mal: '1∕1', S: 1 },
+            { Avst: 150, Vapen: 'AK5', Stallning: 'LigS', Mal: '1∕1', S: 1 },
+            { Avst: 200, Vapen: 'AK5', Stallning: 'LigS', Mal: '1∕1', S: 0.95 },
+            { Avst: 250, Vapen: 'AK5', Stallning: 'LigS', Mal: '1∕1', S: 0.8 },
+            { Avst: 300, Vapen: 'AK5', Stallning: 'LigS', Mal: '1∕1', S: 0.65 },
+            { Avst: 350, Vapen: 'AK5', Stallning: 'LigS', Mal: '1∕1', S: 0.5 },
+            { Avst: 400, Vapen: 'AK5', Stallning: 'LigS', Mal: '1∕1', S: 0.35 },
+            { Avst: 500, Vapen: 'AK5', Stallning: 'LigS', Mal: '1∕1', S: 0.15 },
+            { Avst: 600, Vapen: 'AK5', Stallning: 'LigS', Mal: '1∕1', S: 0.1 },
+            { Avst: 50, Vapen: 'AK5', Stallning: 'Lig', Mal: '1∕1', S: 0.9 },
+            { Avst: 100, Vapen: 'AK5', Stallning: 'Lig', Mal: '1∕1', S: 0.9 },
+            { Avst: 150, Vapen: 'AK5', Stallning: 'Lig', Mal: '1∕1', S: 0.9 },
+            { Avst: 200, Vapen: 'AK5', Stallning: 'Lig', Mal: '1∕1', S: 0.85 },
+            { Avst: 250, Vapen: 'AK5', Stallning: 'Lig', Mal: '1∕1', S: 0.7 },
+            { Avst: 300, Vapen: 'AK5', Stallning: 'Lig', Mal: '1∕1', S: 0.55 },
+            { Avst: 350, Vapen: 'AK5', Stallning: 'Lig', Mal: '1∕1', S: 0.4 },
+            { Avst: 400, Vapen: 'AK5', Stallning: 'Lig', Mal: '1∕1', S: 0.25 },
+            { Avst: 500, Vapen: 'AK5', Stallning: 'Lig', Mal: '1∕1', S: 0.05 },
+            { Avst: 600, Vapen: 'AK5', Stallning: 'Lig', Mal: '1∕1', S: 0 },
+            { Avst: 50, Vapen: 'AK5', Stallning: 'KnäS', Mal: '1∕1', S: 0.9 },
+            { Avst: 100, Vapen: 'AK5', Stallning: 'KnäS', Mal: '1∕1', S: 0.9 },
+            { Avst: 150, Vapen: 'AK5', Stallning: 'KnäS', Mal: '1∕1', S: 0.9 },
+            { Avst: 200, Vapen: 'AK5', Stallning: 'KnäS', Mal: '1∕1', S: 0.85 },
+            { Avst: 250, Vapen: 'AK5', Stallning: 'KnäS', Mal: '1∕1', S: 0.7 },
+            { Avst: 300, Vapen: 'AK5', Stallning: 'KnäS', Mal: '1∕1', S: 0.55 },
+            { Avst: 350, Vapen: 'AK5', Stallning: 'KnäS', Mal: '1∕1', S: 0.4 },
+            { Avst: 400, Vapen: 'AK5', Stallning: 'KnäS', Mal: '1∕1', S: 0.25 },
+            { Avst: 500, Vapen: 'AK5', Stallning: 'KnäS', Mal: '1∕1', S: 0.05 },
+            { Avst: 600, Vapen: 'AK5', Stallning: 'KnäS', Mal: '1∕1', S: 0 },
+            { Avst: 50, Vapen: 'AK5', Stallning: 'Knä', Mal: '1∕1', S: 0.8 },
+            { Avst: 100, Vapen: 'AK5', Stallning: 'Knä', Mal: '1∕1', S: 0.8 },
+            { Avst: 150, Vapen: 'AK5', Stallning: 'Knä', Mal: '1∕1', S: 0.8 },
+            { Avst: 200, Vapen: 'AK5', Stallning: 'Knä', Mal: '1∕1', S: 0.75 },
+            { Avst: 250, Vapen: 'AK5', Stallning: 'Knä', Mal: '1∕1', S: 0.6 },
+            { Avst: 300, Vapen: 'AK5', Stallning: 'Knä', Mal: '1∕1', S: 0.45 },
+            { Avst: 350, Vapen: 'AK5', Stallning: 'Knä', Mal: '1∕1', S: 0.3 },
+            { Avst: 400, Vapen: 'AK5', Stallning: 'Knä', Mal: '1∕1', S: 0.15 },
+            { Avst: 500, Vapen: 'AK5', Stallning: 'Knä', Mal: '1∕1', S: -0.05 },
+            { Avst: 600, Vapen: 'AK5', Stallning: 'Knä', Mal: '1∕1', S: -0.1 },
+            { Avst: 50, Vapen: 'AK5', Stallning: 'StåS', Mal: '1∕1', S: 0.9 },
+            // Fyll i resten av datan här...
+        ];
 
-    // Fyll dropdown
-    tabell2.forEach(entry => {
-      const opt = document.createElement("option");
-      opt.value = entry.kaliber;
-      opt.textContent = entry.kaliber;
-      select.appendChild(opt);
-    });
+        const tbody = document.querySelector("tbody");
 
-    // Ändra S-värde vid val
-    select.addEventListener("change", () => {
-      const selected = tabell2.find(k => k.kaliber === select.value);
-      sValue.textContent = selected ? selected.s : "--";
-    });
-
-    // Service worker registrering
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('service-worker.js')
-        .then(reg => console.log('Service Worker registrerad:', reg.scope))
-        .catch(err => console.error('Service Worker fel:', err));
-    }
-  </script>
+        data.forEach(item => {
+            const row = document.createElement("tr");
+            Object.values(item).forEach(value => {
+                const td = document.createElement("td");
+                td.textContent = value;
+                row.appendChild(td);
+            });
+            tbody.appendChild(row);
+        });
+    </script>
 </body>
 </html>
