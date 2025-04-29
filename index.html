@@ -20,14 +20,22 @@
       font-size: 1.2em;
       margin: 1em 0;
     }
+    .output {
+      font-size: 1.5em;
+      margin-top: 1em;
+    }
   </style>
 </head>
 <body>
   <h1>S-värde kalkylator</h1>
+  
   <label for="kaliber">Välj kaliber:</label>
-  <select id="kaliberSelect"></select>
-  <p><strong>S-värde:</strong> <span id="sValue">--</span></p>
+  <select id="kaliberSelect">
+    <!-- Alternativ kommer att fyllas här med JavaScript -->
+  </select>
 
+  <p class="output"><strong>S-värde:</strong> <span id="sValue">--</span></p>
+  
   <script>
     const tabell2 = [
       { "kaliber": "6.5x55", "s": "1.52" },
