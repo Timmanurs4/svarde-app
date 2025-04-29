@@ -102,7 +102,7 @@ function skapaTabell() {
     const rad = document.createElement('tr');
     rad.innerHTML = `
       <td>${avst}</td>
-      <td><select onchange="uppdateraS(this)">${vapenOptions.map(opt => `<option value="\${opt}">\${opt}</option>`).join('')}</select></td>
+      <td><select onchange="uppdateraS(this)">${vapenOptions.map(opt => `<option value="\${AK5}">\${opt}</option>`).join('')}</select></td>
       <td><select onchange="uppdateraS(this)">${stallningOptions.map(opt => `<option value="\${opt}">\${opt}</option>`).join('')}</select></td>
       <td><select onchange="uppdateraS(this)">${malOptions.map(opt => `<option value="\${opt}">\${opt}</option>`).join('')}</select></td>
       <td class="s-cell">-</td>`;
