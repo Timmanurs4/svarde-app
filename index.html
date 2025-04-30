@@ -30,6 +30,12 @@
       width: 95%;
       margin-top: 20px;
     }
+
+    th:first-child,
+    td:first-child {
+    width: 10%;
+    }
+
     th {
       background-color: #001933;
       color: white;
@@ -123,7 +129,7 @@ function uppdateraS(element) {
 
   const match = tabell2.find(rad => rad.Avst === avst && rad.Vapen === vapen && rad.Stallning === stallning && rad.Mal === mal);
   if (match) {
-    sCell.textContent = match.S;
+    sCell.textContent = match.S.toFixed(2);
     if (match.S <= 0.1) {
       sCell.style.backgroundColor = '#FF0000';
       sCell.style.color = '#000000';
