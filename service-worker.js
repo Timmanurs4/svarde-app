@@ -2,7 +2,7 @@
 const CACHE_NAME = 's-varde-cache-v4';
 const urlsToCache = [
   './',
-  './index_fungerar_med_val.html',
+  './index.html',
   './favicon.png',
   './manifest.json'
 ];
